@@ -1,0 +1,75 @@
+# Arquitetura
+
+* As funções relacionadas ao gerenciamento das casas do jogo da velha ficarão no módulo **jogovelha.py**.
+
+* O estado de cada casa do jogo será representada por uma string: "." para casa vazia; "X" para casa ocupada pelo 1º jogador; "O" para casa ocupada pelo 2º jogador
+
+* A função inicializar () retornará uma lista 3x3, onde cada posição conterá uma string para indicar o estado de uma casa do jogo. A função retornará todas as casas inicialmente vazias.
+
+
+
+
+
+
+# Requisitos
+
+* Gerar uma estrutura de dados para manter o estado de cada uma das casas de um jogo da velha.
+
+* Cada casa do jogo da velha poderá estar vazia, ocupada pelo 1ºjogador ou ocupada pelo 2º Jogador.
+
+
+
+
+
+
+@@ -0,0 +1,15 @@
+def inicializar():
+  tab = [ ]
+  for i in range(3):
+    linha = [ ]
+    for j in range(3):
+       linha.append(".")
+    tab.append(linha)
+  return tab
+
+def main( ):
+   jogo = inicializar( )
+   print (jogo)
+
+if __name__ =="__main__":
+   main() 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   @@ -0,0 +1,21 @@
+import jogovelha
+import sys
+
+erroInicializar = False
+jogo = jogovelha.inicializar()
+
+if len(jogo) != 3:
+   erroInicializar = True
+else:
+   for linha in jogo:
+      if len(linha) != 3:
+         erroInicializar = True
+      else:
+         for elemento in linha:
+            if elemento != '.':
+               erroInicializar = True
+
+if erroInicializar:
+   sys.exit(1)
+else:
+   sys.exit(0) 
